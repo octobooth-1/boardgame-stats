@@ -51,9 +51,11 @@ evaluators:
           score: 0
   - name: Coherence
     uses: github/coherence
+  - name: Similarity
+    uses: github/similarity
 testData:
   - input: |
-      Setting: Haunted forest
+      Setting: Haunted
       Tone: Dark and mysterious
       Level: 3
       Special request: Include a talking animal companion
