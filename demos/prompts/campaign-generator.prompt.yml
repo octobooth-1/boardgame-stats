@@ -23,6 +23,34 @@ messages:
       - Main Locations (with brief descriptions)
       - Final Twist
       - Final Encounter
+evaluators:
+  - name: Required sections
+    llm:
+      modelId: azureml://registries/azure-openai/models/o4-mini/versions/2025-04-16
+      prompt: |+
+        Check that the output contains ALL of the following sections:
+
+        - Title
+        - Campaign Hook
+        - Plot Summary
+        - Key NPCs
+        - Main Locations
+        - Final Twist
+        - Final Encounter
+
+        Your output should only be YES or NO on its own line
+
+        <output>
+        {{completion}} 
+        </output>
+
+      choices:
+        - choice: 'YES'
+          score: 1
+        - choice: 'NO'
+          score: 0
+  - name: Coherence
+    uses: github/coherence
 testData:
   - input: |
       Setting: Haunted forest
@@ -79,31 +107,3 @@ testData:
       Final Twist: The saboteur is revealed to be Sabir, who seeks to win the
       contest to lift a family curse. The party can help him, turning a rivalry
       into a heartfelt alliance.
-evaluators:
-  - name: Required sections
-    llm:
-      modelId: azureml://registries/azure-openai/models/o4-mini/versions/2025-04-16
-      prompt: |+
-        Check that the output contains ALL of the following sections:
-
-        - Title
-        - Campaign Hook
-        - Plot Summary
-        - Key NPCs
-        - Main Locations
-        - Final Twist
-        - Final Encounter
-
-        Your output should only be YES or NO on its own line
-
-        <output>
-        {{completion}} 
-        </output>
-
-      choices:
-        - choice: 'YES'
-          score: 1
-        - choice: 'NO'
-          score: 0
-  - name: Coherence
-    uses: github/coherence
