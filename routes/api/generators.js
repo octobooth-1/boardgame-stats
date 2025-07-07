@@ -8,7 +8,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const token = process.env['GITHUB_TOKEN']
+const token = process.env['GITHUB_ACCESS_TOKEN']
 const endpoint = 'https://models.github.ai/inference'
 
 /**
@@ -68,7 +68,7 @@ router.post('/character', async (req, res) => {
 // Make external API call with GitHub Models
 async function modelCall(messages, model, parameters = {}) {
 	if (!token) {
-		throw new Error('GITHUB_TOKEN environment variable is not set')
+		throw new Error('GITHUB_ACCESS_TOKEN environment variable is not set')
 	}
 
 	try {
