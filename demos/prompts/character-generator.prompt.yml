@@ -27,3 +27,10 @@ messages:
 testData:
   - input: Hard-to-please villager and shop owner
   - input: Elusive conman who promises the world
+evaluators:
+  - name: Coherence
+    uses: github/coherence
+  - name: Relevance
+    uses: github/relevance
+  - name: Groundedness
+    uses: github/groundedness
