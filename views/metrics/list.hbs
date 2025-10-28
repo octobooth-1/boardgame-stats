@@ -1,0 +1,30 @@
+<h2>Metrics Dashboard</h2>
+
+<div class="metrics-container">
+	<div class="metric-card">
+		<h3>Total Games</h3>
+		<p class="metric-value">{{metrics.totalGames}}</p>
+	</div>
+
+	<div class="metric-card">
+		<h3>Total Players</h3>
+		<p class="metric-value">{{metrics.totalPlayers}}</p>
+	</div>
+
+	<div class="metric-card">
+		<h3>Total Plays</h3>
+		<p class="metric-value">{{metrics.totalPlays}}</p>
+	</div>
+
+	<div class="metric-card">
+		<h3>Most Played Game</h3>
+		<p class="metric-value">{{metrics.mostPlayedGame.title}}</p>
+		<p class="metric-detail">{{metrics.mostPlayedGame.play_count}} plays</p>
+	</div>
+
+	<div class="metric-card">
+		<h3>Most Active Player</h3>
+		<p class="metric-value">{{metrics.mostActivePlayer.name}}</p>
+		<p class="metric-detail">{{metrics.mostActivePlayer.play_count}} plays</p>
+	</div>
+</div>

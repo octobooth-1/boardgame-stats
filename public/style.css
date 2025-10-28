@@ -41,6 +41,44 @@ main ul + * {
 	display: block;
 }
 
+/* Metrics Dashboard Styling */
+.metrics-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.metric-card {
+	background-color: #1e3a8a;
+	color: white;
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.metric-card h3 {
+	margin: 0 0 1rem 0;
+	font-size: 1rem;
+	color: #93c5fd;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.metric-value {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 0;
+	color: white;
+}
+
+.metric-detail {
+	font-size: 0.875rem;
+	margin: 0.5rem 0 0 0;
+	color: #bfdbfe;
+}
+
 @media (max-width: 600px) {
 	header {
 		flex-direction: column; /* Stack header elements vertically */
@@ -53,5 +91,9 @@ main ul + * {
 		flex-wrap: wrap; /* Allow wrapping if needed */
 		gap: 0.5rem; /* Reduce gap between links */
 		justify-content: space-between; /* Distribute links evenly */
+	}
+	
+	.metrics-container {
+		grid-template-columns: 1fr;
 	}
 }
