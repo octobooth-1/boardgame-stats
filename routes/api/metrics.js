@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
 			FROM games g
 			LEFT JOIN plays p ON g.bgg = p.game_id
 			GROUP BY g.bgg
+			HAVING play_count > 0
 			ORDER BY play_count DESC
 			LIMIT 1
 		`)
@@ -42,6 +43,7 @@ router.get('/', async (req, res) => {
 			FROM players pl
 			LEFT JOIN play_players pp ON pl.id = pp.player_id
 			GROUP BY pl.id
+			HAVING play_count > 0
 			ORDER BY play_count DESC
 			LIMIT 1
 		`)

@@ -8,7 +8,8 @@ router.get('/', async (req, res) => {
 		const metrics = await response.json()
 		res.render('metrics/list', { metrics })
 	} catch (error) {
-		res.status(500).send('Error fetching metrics')
+		console.error('Error fetching metrics:', error)
+		res.status(500).send('Error fetching metrics. Please try again later.')
 	}
 })
 
